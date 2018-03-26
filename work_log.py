@@ -62,7 +62,6 @@ def log_file(tasktitle, duration, notes, fmtd):
     clr()
     filename = os.path.join(os.getcwd(),'work_log.csv')
     file_exists = os.path.exists(filename)
-    print(filename)
     with open('work_log.csv', 'a', newline='') as csvfile:
     	fieldnames = ['TaskTitle', 'Duration', 'Notes', 'Date']
     	csvfilewriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -129,6 +128,7 @@ def exitsting_entry():
 			input("Hit 'Enter' to go back to the menu")
 		elif choice == "e":
 			search_by_duration()
+			input("Hit 'Enter' to go back to the menu")
 		elif choice == "f":
 			break	
 		 
@@ -162,7 +162,8 @@ def search_by_date():
 			for log in logs:
 				print("+++++++++++++++++++++++++++++")
 				for data in log:
-					print(log[data])
+					print(data+":"+log[data])
+			break		
 	
 
 
@@ -191,7 +192,7 @@ def range_of_date():
 		for log in logs:
 			print("++++++++++++++++++++++++++++++++++++++++")
 			for data in log:
-				print(log[data])
+				print(data +":"+log[data])
 
 
 def search_with_string():
@@ -257,6 +258,7 @@ def search_by_duration():
 				print("+++++++++++++++++++++++++++++")
 				for data in log:
 					print(data + ":" +log[data])
+			break		
 		else:
 			print("Not the right format")			
 
